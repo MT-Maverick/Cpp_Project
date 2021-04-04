@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int reduce (int num,int denom,int visor)
+{
+  int NumGCD = num/visor;
+  int DenomGCD = denom/visor;
+ if(NumGCD<=0)
+ {
+    cout <<0;
+ }
+ else if(DenomGCD<=0)
+ {
+    cout<<0;
+ }
+ else
+ {
+    cout<<1;
+ };
+}
+
+int main ()
+{
+  reduce(3,9,1);
+}
