@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-int reduce (int num,int denom,int visor)
+int reduce (int num,int denom,int devisor)
 {
-  int NumGCD = num/visor;
-  int DenomGCD = denom/visor;
+  int NumGCD = num/devisor;
+  int DenomGCD = denom/devisor;
  if(NumGCD<=0)
  {
     cout <<0;
