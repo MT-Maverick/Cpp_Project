@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+int calculateCharges ()
+{
+    bool open;
+    cout<<"Are we open?"<<endl;
+    cin>>open;
+    
+    if(open==true)
+    {
+        
+        float start,stop;
+        string mod;
+        cout<<"Enter Time In"<<endl;
+        cin>>start;
+        cout<<"Enter Time Out"<<endl;
+        cin>>stop;
+        
+        float charge = 12.00;
+        float interest = 0.90;
+        float tim =stop-start;
+        
+        if(tim>3)
+        {
+            charge = charge+interest;
+        };
+        
+    };
+    
+  cout <<"Cars:"<<"|"<<"Hours"<<"|"<<"Charge"<<endl;
+  cout <<ShowVector(model)<<"|"<<tim<<"|"<<charge<<endl;
+  /*
+  cout <<"Cars:"<<"Hours"<<"Charge";
+  cout <<"Cars:"<<"Hours"<<"Charge";
+  cout <<"Total"<< << ;
+    */
+}
+
+int
+main ()
+{
+  calculateCharges();
+
+}
