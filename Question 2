@@ -1,45 +1,47 @@
 #include <iostream>
-#include <vector>
+
 using namespace std;
-int calculateCharges ()
-{
-    bool open;
-    cout<<"Are we open?"<<endl;
-    cin>>open;
+
+int userfeed(int x){
     
-    if(open==true)
-    {
+    int Car;
+    int Hours;
+    double Charge=12.00;
+    double extra_Charge;
+    double max_Charge;
+    for(int i=0;i<x;i++){
         
-        float start,stop;
-        string mod;
-        cout<<"Enter Time In"<<endl;
-        cin>>start;
-        cout<<"Enter Time Out"<<endl;
-        cin>>stop;
+        while(1){
         
-        float charge = 12.00;
-        float interest = 0.90;
-        float tim =stop-start;
-        
-        if(tim>3)
-        {
-            charge = charge+interest;
+            cout<<"Enter The Car no:\n Enter hours in that order\n:";
+            cin>>Car>>Hours; cin.ignore();
+            
+            if(Hours>3){
+                
+                double extra_Charge = Charge+(0.90*Hours);
+                cin>>extra_Charge; cin.ignore();
+                
+            }else if(Hours>25){
+                
+                double max_Charge=20;
+                cin>>max_Charge; cin.ignore();
+            
+                
+            }else{
+                    cin>>Charge; cin.ignore();
+            };
         };
-        
+        cout<<"Car:"<<" "<<"Hours:"<<" "<<"Rate per hour:"<<"\n"
+        <<Car<<"    "<<Hours<<"      "<<extra_Charge<<max_Charge<<Charge<<endl;
+    
+        break;    
     };
     
-  cout <<"Cars:"<<"|"<<"Hours"<<"|"<<"Charge"<<endl;
-  cout <<ShowVector(model)<<"|"<<tim<<"|"<<charge<<endl;
-  /*
-  cout <<"Cars:"<<"Hours"<<"Charge";
-  cout <<"Cars:"<<"Hours"<<"Charge";
-  cout <<"Total"<< << ;
-    */
+    return 0;
 }
-
-int
-main ()
+int main()
 {
-  calculateCharges();
-
+    userfeed(3);
+    return 0;
 }
+
