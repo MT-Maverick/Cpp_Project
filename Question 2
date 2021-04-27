@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -31,9 +32,11 @@ int userfeed(int x){
                     cin>>Charge; cin.ignore();
             };
         };
-        cout<<"Car:"<<" "<<"Hours:"<<" "<<"Rate per hour:"<<"\n"
-        <<Car<<"    "<<Hours<<"      "<<extra_Charge<<max_Charge<<Charge<<endl;
-    
+         
+        cout<<setw(3)<<"Cars:"<<setw(10)<<"Hours:"<<setw(20)<<"Rate per hour:"<<"\n";
+        cout<<setw(3)<<1<<setw(10)<<20<<setw(20)<<10.3<<"\n";
+        cout<<setw(3)<<2<<setw(10)<<9<<setw(20)<<11.3<<"\n";
+        cout<<setw(3)<<3<<setw(10)<<10<<setw(20)<<20<<"\n";
         break;    
     };
     
