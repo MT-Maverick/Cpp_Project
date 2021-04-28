@@ -2,49 +2,50 @@
 #include <iomanip>
 
 using namespace std;
-
-int userfeed(int x){
     
-    int Car;
-    int Hours;
-    double Charge=12.00;
-    double extra_Charge;
-    double max_Charge;
-    for(int i=0;i<x;i++){
+int userfeed(){
+    double  interest = 0.90;
+    double fee = 12.00;
+    double fee_array[2];
+    
+    int min_time =3;
+    int max_time =24;
+    
+    int Car,car_array[2];
+    int Hours,hours_array[2];
+    
+    for(int i=0;i<3;i++){
+        cout<<"Enter The Car No.:\n";
+        cin>>Car; cin.ignore();
+        car_array[i] = Car;
         
-        while(1){
+        cout<< "Enter The NO. Hours:\n";
+        cin>>Hours; cin.ignore();
+        hours_array[i] = Hours;    
         
-            cout<<"Enter The Car no:\n Enter hours in that order\n:";
-            cin>>Car>>Hours; cin.ignore();
-            
-            if(Hours>3){
-                
-                double extra_Charge = Charge+(0.90*Hours);
-                cin>>extra_Charge; cin.ignore();
-                
-            }else if(Hours>25){
-                
-                double max_Charge=20;
-                cin>>max_Charge; cin.ignore();
-            
-                
-            }else{
-                    cin>>Charge; cin.ignore();
-            };
+        if((Hours>min_time)&&(Hours<max_time))
+        {
+          fee_array[i] = fee+(interest*Hours);
+        }
+        else if(Hours>=max_time)
+        {
+          fee_array[i] = 20;
+        }
+        else{
+          fee_array[i] = fee;
         };
-         
-        cout<<setw(3)<<"Cars:"<<setw(10)<<"Hours:"<<setw(20)<<"Rate per hour:"<<"\n";
-        cout<<setw(3)<<1<<setw(10)<<20<<setw(20)<<10.3<<"\n";
-        cout<<setw(3)<<2<<setw(10)<<9<<setw(20)<<11.3<<"\n";
-        cout<<setw(3)<<3<<setw(10)<<10<<setw(20)<<20<<"\n";
-        break;    
     };
     
-    return 0;
-}
-int main()
-{
-    userfeed(3);
+        cout<<setw(3)<<"Cars:"<<setw(10)<<"Hours:"<<setw(20)<<"Rate per hour:"<<"\n";
+        cout<<setw(3)<<car_array[0]<<setw(10)<<hours_array[0]<<setw(20)<<fee_array[0]<<"\n";
+        cout<<setw(3)<<car_array[1]<<setw(10)<<hours_array[1]<<setw(20)<<fee_array[1]<<"\n";
+        cout<<setw(3)<<car_array[2]<<setw(10)<<hours_array[2]<<setw(20)<<fee_array[2]<<"\n";
+    
+        return 0;
+    }
+    
+    int main() {
+    userfeed();
     return 0;
 }
 
