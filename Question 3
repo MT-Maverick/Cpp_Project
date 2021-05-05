@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int main(){
+int val = hours
+    getinfo();
+    return 0;
+    }
+ int salaryinfo(){
+
+    cout<<"Enter Hours : "<<"\n";
+    cin>>val; cin.ignore();
+    }
+    
+void getinfo(){
+    salaryinfo();
+    cout<<val;
+}
