@@ -1,17 +1,51 @@
 #include<iostream>
+#include<iomanip>
 using namespace std;
-int main(){
-int val = hours
-    getinfo();
-    return 0;
-    }
- int salaryinfo(){
-
-    cout<<"Enter Hours : "<<"\n";
-    cin>>val; cin.ignore();
-    }
+class emp {
     
-void getinfo(){
-    salaryinfo();
-    cout<<val;
+    public:
+    
+    //Properties:
+    double week_rate =105.50;
+    string emp_name;
+    int emp_no;
+    int hours;
+    
+    //Get employee info
+    void getInfo()
+    {
+        cout<<"Enter Employee Name : "<<"\n";
+        cin>>emp_name; cin.ignore();
+        string Emp_name =emp_name;
+        cout<<"Enter Employee No : "<<"\n";
+        cin>>emp_no; cin.ignore();
+        int Emp_no = emp_no;
+        
+    }
+};
+
+class salary :public emp{
+    //Employee Salary
+    void getSalary()
+    {
+        cout<<"Enter No of hours : "<<"\n";
+        cin>>hours; cin.ignore();
+        int Hours = hours;
+        double gross;
+        gross = this->week_rate*Hours;
+        }
+};
+
+int main()
+    {
+    emp Worker;
+    salary Rate;
+    
+    Worker.getInfo();
+    Rate.getSalary();
+    
+    cout<<setw(7)<<"Employee Name :"<<setw(14)<<"Employee No :"<<setw(21)<<"Gross Salary :"<<setw(28)<<"Net Salary :"<<endl;
+    cout<<setw(7)<<Worker.Emp_name<<setw(14)<<Worker.emp_no<<setw(21)<<Worker.getSalary()<<setw(28)<<Worker.getSalary()-10<<endl;
+
+return 0;
 }
