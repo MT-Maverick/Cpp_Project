@@ -1,0 +1,57 @@
+#include<iostream>
+using namespace std;
+class person
+{
+    public:
+    
+    string name; 
+    string surname;
+    string gender;
+    int age;
+    
+    
+    person(string name, string surname, string gender, int age)
+    {
+        this->name= name;
+        this->surname= surname;
+        this->gender= gender;
+        this->age= age;
+    }
+};
+ostream & operator <<(ostream &output,person person)
+{
+  output<<"Name:"<<person.name<<endl;
+  output<<"Surame:"<<person.surname<<endl;
+  output<<"Gender:"<<person.gender<<endl;
+  output<<"Age:"<<person.age<<endl;
+  return output;
+}
+
+int main() {
+    // Write C++ code here
+    person p1("Mfundo","Sindane","Male",22);
+    person p2("Musa","Sebeko","Female",20);
+    person p3("Orabile","Inine","Female",24);
+    person p4("Lusanda","Mabena","Male",25);
+    person p5("Criss","Sindane","Male",19);
+    
+    cout<<"\n"<<p1<<endl;
+    cout<<"\n"<<p3<<endl;
+    
+    /*
+    Tasks::Create a linked list of type *(person)
+    
+    List: 
+    person 1<<person 2<<person 3<<person 4<<person 5
+    
+    capable:
+        
+        deleting with no memory loss:
+        person 1<<[empty]<<person 3<<person 4<<person 5
+        
+        inserting with no memory loss:
+        person 1<<person 2<<person 3<<person 4<<person 5<<person 6
+    
+    */
+    return 0;
+}
