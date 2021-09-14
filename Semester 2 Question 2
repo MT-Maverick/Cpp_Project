@@ -1,57 +1,115 @@
-#include<iostream>
+
+#include <iostream>
 using namespace std;
-class person
+
+class node
 {
     public:
-    
-    string name; 
-    string surname;
-    string gender;
-    int age;
-    
-    
-    person(string name, string surname, string gender, int age)
+    string Name;
+    node* Next;
+    node(string name)
     {
-        this->name= name;
-        this->surname= surname;
-        this->gender= gender;
-        this->age= age;
+        this->Name=name;
+        this->Next=NULL;
     }
 };
-ostream & operator <<(ostream &output,person person)
-{
-  output<<"Name:"<<person.name<<endl;
-  output<<"Surame:"<<person.surname<<endl;
-  output<<"Gender:"<<person.gender<<endl;
-  output<<"Age:"<<person.age<<endl;
-  return output;
-}
 
-int main() {
-    // Write C++ code here
-    person p1("Mfundo","Sindane","Male",22);
-    person p2("Musa","Sebeko","Female",20);
-    person p3("Orabile","Inine","Female",24);
-    person p4("Lusanda","Mabena","Male",25);
-    person p5("Criss","Sindane","Male",19);
-    
-    cout<<"\n"<<p1<<endl;
-    cout<<"\n"<<p3<<endl;
-    
-    /*
-    Tasks::Create a linked list of type *(person)
-    
-    List: 
-    person 1<<person 2<<person 3<<person 4<<person 5
-    
-    capable:
-        
-        deleting with no memory loss:
-        person 1<<[empty]<<person 3<<person 4<<person 5
-        
-        inserting with no memory loss:
-        person 1<<person 2<<person 3<<person 4<<person 5<<person 6
-    
-    */
+class list
+{
+  public:
+  node* Head;
+  void add_at_front(node* ptr)
+        {
+        ptr->Next=Head;
+        Head=ptr;
+    }
+  bool is_empty()
+        {
+        if(Head==NULL)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+  void add_at_end(node* ptr)
+        {
+      if(Head==NULL)
+      {
+          Head=ptr;
+          ptr->Next=NULL;
+      }
+      else
+      {
+          node* ptr2=get_last_node(); 
+          ptr2->Next=ptr;
+      }
+  }
+    node* get_last_node()
+        {
+            node* ptr =Head;
+            
+            while(ptr->Next!=NULL)
+            {
+                ptr=ptr->Next;
+            }
+            return ptr;
+        }
+    node* search(string name)
+        {
+            node* ptr=Head;
+            while(ptr!=NULL && ptr->Name!=name)
+            {
+                ptr=ptr->Next;
+            }
+            return ptr;
+        }
+    node* remove_node(string name)
+        {
+            node *ptr=search(name);
+            node *x=Head;
+            
+            if(x==ptr)
+            {
+                Head =ptr->Next;
+                return ptr;
+            }
+            else
+            {
+                while(x->Next!=ptr)
+                {
+                    x=x->Next;
+                }
+                x->Next=ptr->Next;
+                return ptr;
+            }
+        }
+  void print()
+  {
+    node *ptr=Head;
+    while(ptr!=NULL)
+    {
+        cout<<ptr->Name<<"->";
+        ptr=ptr->Next;
+    }
+  }
+  list()
+  {
+      Head=NULL;
+  }
+};
+int main()
+{
+    list L;
+    node *n1 =new node("Mfundo");
+    node *n2 =new node("Trevor");
+    node *n3 =new node("Sindane");
+    L.add_at_front(n1);
+    L.add_at_end(n2);
+    L.add_at_end(n3);
+    L.print();
+    cout<<wctype(n1);
     return 0;
 }
