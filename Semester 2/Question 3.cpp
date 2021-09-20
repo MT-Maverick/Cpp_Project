@@ -17,14 +17,38 @@ class node {
 
 class Stack {
     public:
+        int Stacktop;
+        int Max_stack_size=100;
         node *top;
+        
+        void initialize_stack()
+        {
+            Stacktop=0;
+            
+        }
+        bool is_stack_empty()
+        {
+            if(Stacktop==0)
+            {
+                return 0;
+            }
+            else{
+            
+                return 1;
+            }
+            
+        }
+        bool is_stack_full()
+        {
+            return (Max_stack_size==Stacktop);
+        }
         
         void push(node *n) {
             n->next = top;
             top = n;
         }
-        void pop(node* n ) {
-            n = top;
+        void pop() {
+            node *n = top;
             top = top->next;
             delete(n);
         }
@@ -33,7 +57,8 @@ class Stack {
             while(ptr != NULL) {
                 cout << ptr->Name<<"\n"
                 << ptr->Surname<<"\n"
-                << ptr->Age<<endl;
+                << ptr->Age<<"\n"
+                <<"------------"<<endl;
                 ptr = ptr->next;
             }
         }
@@ -53,8 +78,8 @@ int main() {
     S.push(n1);
     S.push(n2);
     S.push(n3);
-    S.print();
-    S.pop(n3);
+    
+    S.is_stack_empty();
     S.print();
     
     return 0;
