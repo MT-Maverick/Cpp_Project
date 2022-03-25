@@ -1,4 +1,4 @@
 # Data Structures & Algorithms in cpp
-Data structures
--Linked List
--Stack
+Data structures:
+1)Linked List
+2)Stack
